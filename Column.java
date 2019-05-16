@@ -14,10 +14,16 @@ public class Column
         addRows(nums);
     }
     
-    public void addRow(Row r) { rows.add(r); numSeats+=r.getNumSeats(); }
+    public void addRow(Row r) { 
+        out( "Adding a row: " + r.getNumSeats() );
+        rows.add(r);
+        numSeats+=r.getNumSeats();
+    }
+    
     public int getNumSeats() { return numSeats; }
     
     public void addRows(int[] nums) {
+        out("Adding a list of rows...");
         for(int i : nums) {
             addRow( new Row(i) );
         }
@@ -29,5 +35,9 @@ public class Column
             c += r.numLeft();
         }
         return c;
+    }
+    
+    private void out(String s) {
+        LHSSeat.debug("[COLUMN] " + s);
     }
 }

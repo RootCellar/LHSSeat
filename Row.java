@@ -6,6 +6,7 @@ public class Row
     
     ArrayList<Seat> seats = new ArrayList<Seat>();
     public Row(int n) {
+        out("Constructing...");
         for(int i=0; i<n; i++) {
             seats.add( new Seat() );
         }
@@ -27,8 +28,9 @@ public class Row
     }
     
     public int take(int n) {
+        out("Taking " + n + " seats...");
         for(Seat s : seats) {
-            if(!s.isTaken()) {
+            if(!s.isTaken() && n > 0) {
                 s.take();
                 n--;
             }
@@ -38,4 +40,8 @@ public class Row
     }
     
     public int getNumSeats() { return numSeats; }
+    
+    private void out(String s) {
+        LHSSeat.debug("[ROW] " + s);
+    }
 }

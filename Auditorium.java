@@ -31,6 +31,15 @@ public class Auditorium
         return c;
     }
     
-    public void addColumn(Column col) { columns.add(col); numSeats += col.getNumSeats();}
+    public void addColumn(Column col) { 
+        columns.add(col);
+        numSeats += col.getNumSeats();
+        out( "Adding a row: " + col.getNumSeats() );
+    }
+    
     public int numSeats() { return numSeats; }
+    
+    private void out(String s) {
+        LHSSeat.debug("[AUDITORIUM] " + s);
+    }
 }
